@@ -9,7 +9,7 @@ USER root
 #install KONLPY 
 RUN \
   apt-get update && \
-  apt-get install -y openjdk-7-jdk  automake libmecab2 libmecab-dev && \
+  apt-get install -y openjdk-7-jdk  automake libmecab2 libmecab-dev texlive-xetex && \
   rm -rf /var/lib/apt/lists/*
 
 USER $NB_USER
