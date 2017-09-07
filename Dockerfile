@@ -9,16 +9,16 @@ USER root
 #install KONLPY 
 RUN \
   apt-get update && \
-  apt-get install -y openjdk-7-jdk  automake libmecab2 libmecab-dev && \
+  apt-get install -y openjdk-8-jdk  automake libmecab2 libmecab-dev && \
   rm -rf /var/lib/apt/lists/*
 
 USER $NB_USER
 #RUN pip install JPype1-py3   # Python 3.x
 RUN conda install --quiet --yes JPype1
 #RUN pip2 install JPype1        # Python 2.x
-RUN conda install --quiet --yes -n python2 JPype1
+#RUN conda install --quiet --yes -n python2 JPype1
 RUN pip install konlpy       # Python 3.x
-RUN pip2 install konlpy        # Python 2.x
+#RUN pip2 install konlpy        # Python 2.x
 
 #install MeCab 
 USER root
@@ -43,5 +43,6 @@ RUN cd /tmp && \
 
 USER $NB_USER
 RUN conda install --quiet --yes gensim
-RUN conda install --quiet --yes -n python2 gensim
+RUN conda install --quiet --yes pytables
+#RUN conda install --quiet --yes -n python2 gensim
 
