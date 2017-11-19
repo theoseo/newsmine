@@ -1,6 +1,6 @@
 # Newsmine
 Self-taught news recommendation project to learn machine learning and natural language processing.
-I am developing a [Newsreveal](https://www.facebook.com/newsreveal/), facebook messenger bot, and [Newsmine](osslab.github.io/newsmine) using knowledges what I studyed throuth this project.
+I am developing a [Newsreveal](https://www.facebook.com/newsreveal/), facebook messenger bot, and [Newsmine](osslab.github.io/newsmine) using knowledges what I studyed through this project.
 This project is on going.
 
 ### NLP Basics
