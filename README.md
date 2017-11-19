@@ -11,7 +11,7 @@ This project is on going.
 ### NLP Machine Learning
 - [x] [Korean baseball news classification based on team names](https://github.com/suhongs/newsmine/blob/master/src/baseball%20news%20classification.ipynb)
 - [x] [Predict youtube feed category using baseball news classification model](https://github.com/suhongs/newsmine/blob/master/src/predict%20youtube%20feed%20using%20svm%20model.ipynb)
-- [ ] News Classification all the category(Data is preparing)
+- [ ] News Classification all the category
 - [ ] News recommendation by news section using facebook share counts
 
 You can run jupyter codes in this repository if you build docker image using Dockerfile.
