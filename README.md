@@ -1,6 +1,6 @@
 # Newsmine
 Self-taught project to make news recommendation system.
-Developed a [Newsreveal](https://www.facebook.com/newsreveal/), facebook messenger bot to provide news based on Facebook's share counts.
+Developed a [Newsreveal](https://www.facebook.com/newsreveal/), facebook messenger bot, to provide news based on Facebook's share counts.
 This project is on going.
 
 ### NLP Basics
