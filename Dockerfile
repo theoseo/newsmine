@@ -1,6 +1,6 @@
 # Copyright (c) Jupyter Development Team.
 # Distributed under the terms of the Modified BSD License.
-FROM jupyter/tensorflow-notebook
+FROM jupyter/scipy-notebook
 
 MAINTAINER Newsmine Project <manager@osslab.com>
 
@@ -14,6 +14,7 @@ RUN \
 
 USER $NB_USER
 #RUN pip install JPype1-py3   # Python 3.x
+RUN pip install cmake
 RUN conda install --quiet --yes JPype1
 #RUN pip2 install JPype1        # Python 2.x
 #RUN conda install --quiet --yes -n python2 JPype1
@@ -40,8 +41,15 @@ RUN cd /tmp && \
 	git clone https://bitbucket.org/eunjeon/mecab-python-0.996.git; \
 	cd mecab-python-0.996; python setup.py build; python setup.py install; python2 setup.py build; python2 setup.py install
 
-
+#install Khaiii
+RUN cd /tmp && \
+	git clone https://github.com/kakao/khaiii; \
+	cd khaiii; mkdir build; cd build; cmake ..; \
+	make all; make resource; make install; make package_python;
 USER $NB_USER
+
+RUN cd /tmp/khaiii/build/package_python && \
+	pip install . 
 RUN conda install --quiet --yes gensim
 RUN conda install --quiet --yes pytables
 #RUN conda install --quiet --yes -n python2 gensim
