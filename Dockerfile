@@ -39,17 +39,17 @@ RUN cd /tmp && \
 # Mecab-Python
 RUN cd /tmp && \
 	git clone https://bitbucket.org/eunjeon/mecab-python-0.996.git; \
-	cd mecab-python-0.996; python setup.py build; python setup.py install; python2 setup.py build; python2 setup.py install
+	cd mecab-python-0.996; python setup.py build; python setup.py install
 
 #install Khaiii
-RUN cd /tmp && \
-	git clone https://github.com/kakao/khaiii; \
-	cd khaiii; mkdir build; cd build; cmake ..; \
-	make all; make resource; make install; make package_python;
+#RUN cd /tmp && \
+#	git clone https://github.com/kakao/khaiii; \
+#	cd khaiii; mkdir build; cd build; cmake ..; \
+#	make all; make resource; make install; make package_python;
 USER $NB_USER
 
-RUN cd /tmp/khaiii/build/package_python && \
-	pip install . 
+#RUN cd /tmp/khaiii/build/package_python && \
+#	pip install . 
 RUN conda install --quiet --yes gensim
 RUN conda install --quiet --yes pytables
 #RUN conda install --quiet --yes -n python2 gensim
