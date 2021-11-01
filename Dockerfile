@@ -39,7 +39,7 @@ RUN cd /tmp && \
 # Mecab-Python
 RUN cd /tmp && \
 	git clone https://bitbucket.org/eunjeon/mecab-python-0.996.git; \
-	cd mecab-python-0.996; python setup.py build; python setup.py install; python2 setup.py build; python2 setup.py install
+	cd mecab-python-0.996; python setup.py build; python setup.py install
 
 #install Khaiii
 #RUN cd /tmp && \
