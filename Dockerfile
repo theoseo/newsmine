@@ -9,7 +9,7 @@ USER root
 #install KONLPY 
 RUN \
   apt-get update && \
-  apt-get install -y openjdk-8-jdk  automake libmecab2 libmecab-dev && \
+  apt-get install -y openjdk-8-jdk gcc g++ automake build-essential autoconf libtool python-dev libmecab2 libmecab-dev && \
   rm -rf /var/lib/apt/lists/*
 
 USER $NB_USER
@@ -30,9 +30,9 @@ RUN cd /tmp && \
 
 # Mecab-Ko-Dic
 RUN cd /tmp && \
-	wget --quiet https://bitbucket.org/eunjeon/mecab-ko-dic/downloads/mecab-ko-dic-2.0.1-20150920.tar.gz; \
-	tar zxfv mecab-ko-dic-2.0.1-20150920.tar.gz; \
-	cd mecab-ko-dic-2.0.1-20150920; \
+	wget --quiet https://bitbucket.org/eunjeon/mecab-ko-dic/downloads/mecab-ko-dic-2.1.1-20180720.tar.gz; \
+	tar zxfv mecab-ko-dic-2.1.1-20180720.tar.gz; \
+	cd mecab-ko-dic-2.1.1-20180720; \
 	./autogen.sh; \
 	./configure; make; make install; ldconfig
 
@@ -42,15 +42,16 @@ RUN cd /tmp && \
 	cd mecab-python-0.996; python setup.py build; python setup.py install; python2 setup.py build; python2 setup.py install
 
 #install Khaiii
-RUN cd /tmp && \
-	git clone https://github.com/kakao/khaiii; \
-	cd khaiii; mkdir build; cd build; cmake ..; \
-	make all; make resource; make install; make package_python;
+#RUN cd /tmp && \
+#	git clone https://github.com/kakao/khaiii; \
+#	cd khaiii; mkdir build; cd build; cmake ..; \
+#	make all; make resource; make install; make package_python;
 USER $NB_USER
 
-RUN cd /tmp/khaiii/build/package_python && \
-	pip install . 
-RUN conda install --quiet --yes gensim
+#RUN cd /tmp/khaiii/build/package_python && \
+#	pip install . 
+RUN conda install -c conda-forge --quiet --yes gensim=4.0.1
 RUN conda install --quiet --yes pytables
+RUN conda install --quiet --yes transformers
 #RUN conda install --quiet --yes -n python2 gensim
 
